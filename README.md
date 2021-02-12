@@ -1,2 +1,1 @@
-# cli
-Typetron Command Line Tool
+#### Typetron's CLI
