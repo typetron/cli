@@ -33,11 +33,14 @@
 	"dependencies": {
 		"commander": "^7.0.0",
 		"fstream": "^1.0.12",
+		"listr": "^0.14.3",
 		"node-fetch": "^2.6.1",
+		"pkg-install": "^1.0.0",
 		"typescript": "^4.1.4",
 		"unzipper": "^0.10.11"
 	},
 	"devDependencies": {
+		"@types/listr": "^0.14.2",
 		"@types/node": "^14.14.25",
 		"@types/node-fetch": "^2.5.8",
 		"@types/unzipper": "^0.10.3"
