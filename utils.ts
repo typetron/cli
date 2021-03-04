@@ -5,9 +5,10 @@ export function prepareApp() {
     const tsConfig = require(path.join(process.cwd(), 'tsconfig'))
     const tsConfigPaths = require('tsconfig-paths')
 
-    const baseUrl = path.join(process.cwd())
+    // TODO this package tries to load a ton of files until it finds the right one
+    //  Need more investigation on this as it slows down the app quite a bit
     tsConfigPaths.register({
-        baseUrl,
+        baseUrl: './',
         paths: tsConfig.compilerOptions.paths
     })
 }

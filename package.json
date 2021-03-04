@@ -12,7 +12,7 @@
 	],
 	"main": "index.js",
 	"bin": {
-		"typetron": "./index.ts"
+		"typetron": "index.js"
 	},
 	"scripts": {},
 	"repository": {

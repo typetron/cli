@@ -1,4 +1,3 @@
-#!ts-node-transpile-only
 import { program } from 'commander'
 import { NewProjectCommand } from './commands/NewProjectCommand'
 import { boostrapApp } from './utils'
