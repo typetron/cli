@@ -9,6 +9,7 @@ export function prepareApp() {
     //  Need more investigation on this as it slows down the app quite a bit
     tsConfigPaths.register({
         baseUrl: './',
+        mainFields: ['index'],
         paths: tsConfig.compilerOptions.paths
     })
 }
