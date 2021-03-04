@@ -1,5 +1,5 @@
-import path from 'path'
 import { Application } from '@Typetron/Framework'
+import * as path from 'path'
 
 export function prepareApp() {
     const tsConfig = require(path.join(process.cwd(), 'tsconfig'))

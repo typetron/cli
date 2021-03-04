@@ -1,10 +1,11 @@
 #!ts-node-transpile-only
-import program from 'commander'
+import { program } from 'commander'
 import { NewProjectCommand } from './commands/NewProjectCommand'
 import { boostrapApp } from './utils'
 import { serveCommand } from './commands/ServeCommand'
+import * as packageJSON from './package.json'
 
-const typetron = program.description('Typetron CLI')
+const typetron = program.description('Typetron CLI').version(packageJSON.version)
 
 typetron.command('new <projectName>').action(NewProjectCommand)
 
