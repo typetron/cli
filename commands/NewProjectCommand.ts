@@ -6,7 +6,7 @@ import { Writer } from 'fstream'
 import Listr from 'listr'
 import { projectInstall } from 'pkg-install'
 
-export async function newProject(projectName: string) {
+export async function NewProjectCommand(projectName: string) {
     const tasks = new Listr([
         {
             title: `Initializing project '${projectName}'`,
