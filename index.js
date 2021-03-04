@@ -1,4 +1,4 @@
-#!node
+#!/usr/bin/env node
 const path = require('path')
 
 require('ts-node').register({
