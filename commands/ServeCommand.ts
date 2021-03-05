@@ -1,4 +1,4 @@
-import path from 'path'
+import * as path from 'path'
 import { prepareApp } from '../utils'
 
 export async function serveCommand({port}: {port: string}) {

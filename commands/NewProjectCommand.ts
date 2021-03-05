@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import * as unzipper from 'unzipper'
-import path from 'path'
+import * as path from 'path'
 // @ts-ignore
 import { Writer } from 'fstream'
 import Listr from 'listr'
