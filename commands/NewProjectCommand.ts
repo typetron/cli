@@ -28,7 +28,6 @@ export async function NewProjectCommand(projectName: string) {
 
 async function initializeProject(projectName: string) {
     return new Promise<void>(async (resolve) => {
-
         const url = 'https://github.com/typetron/typetron/archive/master.zip'
         const response = await fetch(url)
 
@@ -49,6 +48,6 @@ async function initializeProject(projectName: string) {
                 entry.pipe(writer).on('error', function(error: Error) {console.log('Unzip file error', error)})
             })
 
-        response.body.on('close', resolve)
+        response.body.on('end', resolve)
     })
 }
