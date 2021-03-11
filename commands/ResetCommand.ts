@@ -5,7 +5,7 @@ import { Migrator } from '@Typetron/Database/Migrations'
 import { DatabaseConfig } from '@Typetron/Framework'
 import { Storage } from '@Typetron/Storage'
 
-export class MigrateCommand implements Command {
+export class ResetCommand implements Command {
 
     @Inject()
     storage: Storage
@@ -16,6 +16,6 @@ export class MigrateCommand implements Command {
     async run() {
         const runner = new Migrator(this.storage, Query.connection, this.databaseConfig.migrationsDirectory)
 
-        await runner.migrate()
+        await runner.reset()
     }
 }
