@@ -17,11 +17,16 @@ export class GenerateCommand implements Command {
         if (!await this.storage.exists(stubPath)) {
             return console.error(`Generator does no exists. This is the list of all generators:\n${await this.getMigrationsList()}`)
         }
+
+        console.log(`Generating migration...`)
+
         let stubContent = (await this.storage.read(stubPath)).toString()
 
         stubContent = stubContent.replace('$$name$$', name)
 
         await this.storage.put(path.join(this.databaseConfig.migrationsDirectory, `${Date.now()}_${name}.ts`), stubContent)
+
+        console.log(`Migration '${name}' generated`)
     }
 
     private async getMigrationsList() {
