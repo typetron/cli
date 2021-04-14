@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { Application } from '@Typetron/Framework'
 import * as path from 'path'
 

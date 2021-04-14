@@ -1,17 +1,27 @@
+import '@Typetron/Support'
 import { program, Command } from 'commander'
 import { NewProjectCommand } from './commands/NewProjectCommand'
 import { boostrapApp } from './utils'
-import { serveCommand } from './commands/ServeCommand'
 import * as packageJSON from './package.json'
+import { Container } from '@Typetron/Container'
 
-const typetron = program.description('Typetron CLI').version(packageJSON.version)
+const typetron = program.description('Typetron CLI')
 
-typetron.command('new <projectName>').action(NewProjectCommand)
+typetron.version(packageJSON.version, '-v')
+
+// typetron
+//     .command('serve')
+//     .option('-p, --port [port]', 'The port to run the app at')
+//     .action(serveCommand)
 
 typetron
-    .command('serve')
-    .option('-p, --port [port]', 'The port to run the app at')
-    .action(serveCommand)
+    .command('new <projectName>')
+    .action(async function(this: Command) {
+            const container = new Container()
+            const {NewProjectCommand} = await import('./commands/NewProjectCommand')
+            const command = container.get(NewProjectCommand)
+            await command.run(this.args)
+    })
 
 typetron
     .command('migrate')

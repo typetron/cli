@@ -1,6 +1,6 @@
 {
 	"name": "typetron",
-	"version": "0.1.4",
+	"version": "0.2.1",
 	"description": "Typetron CLI",
 	"keywords": [
 		"typetron",
@@ -31,7 +31,7 @@
 		"@types/node": "^14.14.25",
 		"@types/node-fetch": "^2.5.8",
 		"@types/unzipper": "^0.10.3",
-		"@typetron/framework": "^0.1.3",
+		"@typetron/framework": "^0.2.3",
 		"cli-table": "^0.3.5",
 		"commander": "^7.0.0",
 		"fstream": "^1.0.12",
