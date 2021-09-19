@@ -1,6 +1,6 @@
 {
 	"name": "typetron",
-	"version": "0.3.3",
+	"version": "0.3.4",
 	"description": "Typetron CLI",
 	"keywords": [
 		"typetron",
@@ -14,7 +14,9 @@
 	"bin": {
 		"typetron": "index.js"
 	},
-	"scripts": {},
+	"scripts": {
+		"test": "node index.js new test"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/typetron/cli.git"
@@ -36,7 +38,7 @@
 		"commander": "^8.2.0",
 		"fstream": "^1.0.12",
 		"listr": "^0.14.3",
-		"node-fetch": "^3.0.0",
+		"node-fetch": "^2.6.1",
 		"pkg-install": "^1.0.0",
 		"reflect-metadata": "^0.1.13",
 		"ts-node": "^10.2.1",
