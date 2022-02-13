@@ -73,4 +73,14 @@ typetron
             await command.run(this.args)
     })
 
+typetron
+.command('seed')
+.action(async () => {
+        console.log('Seeding...')
+        const app = await boostrapApp()
+        const {SeedCommand} = await import('./commands/SeedCommand')
+        const command = app.get(SeedCommand)
+        await command.run()
+})
+
 typetron.parse(process.argv)
