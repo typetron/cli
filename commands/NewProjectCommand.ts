@@ -37,16 +37,18 @@ export class NewProjectCommand implements Command {
         }
     }
 
-    addEnvFile(projectName: string, entry: Stream) {
+    addEnvFiles(projectName: string, entry: Stream) {
         const envFileWriter = Writer({path: path.join(projectName, '.env')})
         entry.pipe(envFileWriter)
+        const envTestsFileWriter = Writer({path: path.join(projectName, '.env.tests')})
+        entry.pipe(envTestsFileWriter)
     }
 
     async updateProjectFiles(projectName: string) {
-        const storage = new Storage()
-        let envFile = (await storage.read(path.join(projectName, '.env'))).toString()
-        envFile = envFile.replace(/^APP_SECRET.+/, `APP_SECRET = ${String.random(64)}`)
-        await storage.put(path.join(projectName, '.env'), envFile)
+        await Promise.all([
+            this.updateEnvFile(projectName, '.env'),
+            this.updateEnvFile(projectName, '.env.tests'),
+        ])
     }
 
     async initializeProject(projectName: string) {
@@ -76,7 +78,7 @@ export class NewProjectCommand implements Command {
                     const writer = Writer({path: filePath})
 
                     if (fileName === '.env.example') {
-                        this.addEnvFile(projectName, entry)
+                        this.addEnvFiles(projectName, entry)
                     }
                     entry.pipe(writer).on('error', function(error: Error) {console.log('Unzip file error', error)})
                 })
@@ -85,6 +87,12 @@ export class NewProjectCommand implements Command {
         })
 
         await this.updateProjectFiles(projectName)
+    }
+
+    private async updateEnvFile(projectName: string, fileName: string) {
+        let envFile = (await this.storage.read(path.join(projectName, fileName))).toString()
+        envFile = envFile.replace(/^APP_SECRET.+/, `APP_SECRET=${String.random(64)}`)
+        await this.storage.put(path.join(projectName, fileName), envFile)
     }
 
 }

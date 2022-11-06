@@ -1,6 +1,6 @@
 {
 	"name": "typetron",
-	"version": "0.3.9",
+	"version": "0.3.16",
 	"description": "Typetron CLI",
 	"keywords": [
 		"typetron",
@@ -33,7 +33,7 @@
 		"@types/node": "^16.9.3",
 		"@types/node-fetch": "^3.0.3",
 		"@types/unzipper": "^0.10.4",
-		"@typetron/framework": "^0.3.10",
+		"@typetron/framework": "^0.3.16",
 		"cli-table": "^0.3.6",
 		"commander": "^8.2.0",
 		"fstream": "^1.0.12",
@@ -45,6 +45,5 @@
 		"tsconfig-paths": "^3.11.0",
 		"typescript": "^4.1.4",
 		"unzipper": "^0.10.11"
-	},
-	"devDependencies": {}
+	}
 }
